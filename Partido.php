@@ -87,7 +87,7 @@ class Partido
   {
     return $this->coefBase;
   }
-
+  //3.
   public function darEquipoGanador()
   {
     $equipo1 = $this->getObjEquipo1();
@@ -105,7 +105,7 @@ class Partido
 
     return $equipoGanador;
   }
-
+  //5.
   public function coeficientePartido()
   {
     $cantJugadores = $this->getObjEquipo1()->getCantJugadores() + $this->getObjEquipo2()->getCantJugadores();

@@ -31,6 +31,7 @@ class Torneo
     $this->colPartidos = $colPartidos;
   }
 
+  //4.
   public function ingresarPartido($objEquipo1, $objEquipo2, $fecha, $tipoPartido)
   {
     $objPartido = null;
@@ -53,7 +54,7 @@ class Torneo
     }
     return $objPartido;
   }
-
+  //6.
   public function darGanadores($deporte)
   {
     $colGanadores = [];
@@ -62,27 +63,19 @@ class Torneo
     if ($deporte == "futbol") {
       foreach ($colPartidos as $partido) {
         if ($partido instanceof PartidoFutbol) {
-          if ($partido->getCantGolesE1() > $partido->getCantGolesE2()) {
-            $colGanadores[] = $partido->getObjEquipo1();
-          } elseif ($partido->getCantGolesE1() < $partido->getCantGolesE2()) {
-            $colGanadores[] = $partido->getObjEquipo2();
-          }
+          $colGanadores[] = $partido->darEquipoGanador();
         }
       }
     } else {
       foreach ($colPartidos as $partido) {
         if ($partido instanceof PartidoBasquet) {
-          if ($partido->getCantGolesE1() > $partido->getCantGolesE2()) {
-            $colGanadores[] = $partido->getObjEquipo1();
-          } elseif ($partido->getCantGolesE1() < $partido->getCantGolesE2()) {
-            $colGanadores[] = $partido->getObjEquipo2();
-          }
+          $colGanadores[] = $partido->darEquipoGanador();
         }
       }
     }
     return $colGanadores;
   }
-
+  //7.
   public function calcularPremioPartido($objPartido)
   {
     $coeficientePartido = $objPartido->coeficientePartido();
